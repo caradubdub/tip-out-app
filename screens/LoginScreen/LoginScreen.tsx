@@ -76,7 +76,10 @@ export default function LoginScreen({ navigation }: LoginProps) {
 
       <StyledPrimaryButton
         text={"Login"}
-        onPress={handleSubmit(onSubmitSignin(email,password))
+        onPress={handleSubmit(onSubmitSignin(email: string, password: string) => {
+          const { data, error, loading } = useQuery(SIGNIN_USER, {variables: { email: email, password: password },
+          });
+          console.log('data', data))
           
           //onSubmitSignin(email, password)
        //graphql query for database
